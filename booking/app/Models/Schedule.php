@@ -20,4 +20,18 @@ class Schedule extends Model
         'start_at' => 'datetime',
         'end_at'   => 'datetime',
     ];
+
+    protected $appends = [
+        'peoples_count'
+    ];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function getPeoplesCountAttribute()
+    {
+        return $this->bookings()->sum('peoples_count');
+    }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HealthCheckController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RegisterGetSchedulesController;
 use App\Http\Controllers\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,6 @@ Route::get('/', HealthCheckController::class);
 Route::middleware('auth:api')->get('/user', UserProfileController::class);
 
 Route::post('register', RegisterController::class);
+Route::get('register/schedules', RegisterGetSchedulesController::class);
 
 Route::apiResource('bookings', BookingController::class)->middleware('auth:api');
