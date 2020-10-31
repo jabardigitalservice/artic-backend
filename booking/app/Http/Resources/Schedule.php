@@ -15,11 +15,16 @@ class Schedule extends JsonResource
      */
     public function toArray($request)
     {
+        $quotaMaximum = 30;
+
+        $quotaAvailable = ($quotaMaximum - $this->peoples_count);
+
         return [
             'id' => Hashids::encode($this->id),
             'start_at' => $this->start_at,
             'end_at' => $this->end_at,
             'peoples_count' => $this->peoples_count,
+            'quota_available' => $quotaAvailable,
         ];
     }
 }
