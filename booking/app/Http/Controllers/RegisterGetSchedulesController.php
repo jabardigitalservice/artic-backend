@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Schedule;
+use App\Http\Resources\Schedule as ScheduleResource;
 use Illuminate\Http\Request;
 
 class RegisterGetSchedulesController extends Controller
@@ -23,12 +24,6 @@ class RegisterGetSchedulesController extends Controller
             ->orderBy('start_at', 'asc')
             ->get();
 
-        return $schedules->map(function ($schedule) {
-            return [
-                'start_at' => $schedule->start_at,
-                'end_at' => $schedule->end_at,
-                'peoples_count' => $schedule->peoples_count,
-            ];
-        });
+        return ScheduleResource::collection($schedules);
     }
 }

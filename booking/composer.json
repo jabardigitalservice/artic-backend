@@ -16,7 +16,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "pragmarx/random": "^0.2.2",
-        "spatie/laravel-enum": "^2.0"
+        "spatie/laravel-enum": "^2.0",
+        "vinkla/hashids": "^9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

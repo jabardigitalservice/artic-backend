@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Vinkla\Hashids\Facades\Hashids;
 
 class RegisterRequest extends FormRequest
 {
@@ -31,5 +32,20 @@ class RegisterRequest extends FormRequest
             'peoples_count' => ['required', 'integer', 'max:50'],
             'schedule_id' => ['required', 'integer', 'exists:schedules,id'],
         ];
+    }
+
+    public function validationData()
+    {
+        $scheduleDecoded = Hashids::decode($this->schedule_id);
+
+        $scheduleId = null;
+
+        if (count($scheduleDecoded) === 1) {
+            $scheduleId = $scheduleDecoded[0];
+        }
+
+        $this->merge(['schedule_id' => $scheduleId]);
+
+        return $this->all();
     }
 }
