@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Vinkla\Hashids\HashidsServiceProvider::class,
         CleancodeId\LaravelJwtGuard\LaravelJwtGuardServiceProvider::class,
 
         /*
