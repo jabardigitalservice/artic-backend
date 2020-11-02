@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Vinkla\Hashids\HashidsServiceProvider::class,
+        \Fruitcake\Cors\CorsServiceProvider::class,
         CleancodeId\LaravelJwtGuard\LaravelJwtGuardServiceProvider::class,
 
         /*
