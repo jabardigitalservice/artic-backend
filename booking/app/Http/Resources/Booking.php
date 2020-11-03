@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
 use Vinkla\Hashids\Facades\Hashids;
 
 class Booking extends JsonResource
@@ -15,9 +16,16 @@ class Booking extends JsonResource
      */
     public function toArray($request)
     {
+        $id = Hashids::encode($this->id);
+
+        $url = URL::route(
+            'registration.document',
+            ['id' => $id]
+        );
+
         return [
             $this->mergeWhen($request->user(), [
-                'id' => Hashids::encode($this->id),
+                'id' => $id,
             ]),
             'booking_code' => $this->booking_code,
             'name' => $this->name,
@@ -32,6 +40,7 @@ class Booking extends JsonResource
                     'end_at' => $this->schedule->end_at,
                 ];
             }),
+            'document_url' => $url,
             'status' => $this->status,
         ];
     }
