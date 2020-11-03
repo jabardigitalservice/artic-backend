@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\NikRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Vinkla\Hashids\Facades\Hashids;
 
@@ -28,7 +29,7 @@ class RegisterRequest extends FormRequest
             'name' => ['required', 'max:200'],
             'address' => ['required', 'max:200'],
             'phone_number' => ['required', 'max:200'],
-            'personal_identity' => ['required', 'max:200'],
+            'personal_identity' => ['required', new NikRule()],
             'peoples_count' => ['required', 'integer', 'max:50'],
             'schedule_id' => ['required', 'integer', 'exists:schedules,id'],
         ];

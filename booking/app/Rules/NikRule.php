@@ -48,6 +48,6 @@ class NikRule implements Rule
      */
     public function message()
     {
-        return trans('validation.nik');
+        return trans('validation.personal_identity');
     }
 }

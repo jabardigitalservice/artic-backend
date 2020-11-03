@@ -117,8 +117,8 @@ return [
     'url'                  => 'Format :attribute tidak valid.',
     'uuid'                 => ':attribute harus merupakan UUID yang valid.',
 
-    'nik'       => ':attribute tidak sesuai format NIK.',
-    'recaptcha' => ':attribute tidak valid.',
+    'personal_identity'    => ':attribute tidak sesuai format NIK.',
+    'recaptcha'            => ':attribute tidak valid.',
 
     /*
     |---------------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
 
     'attributes' => [
         'g-recaptcha-response' => 'Recaptcha',
-        'nik'                  => 'Nomor Identitas Kependudukan (NIK)',
+        'personal_identity'    => 'Nomor Identitas Kependudukan (NIK)',
         'name'                 => 'Nama',
         'city_code'            => 'Kabupaten/Kota',
         'district_code'        => 'Kecamatan',
