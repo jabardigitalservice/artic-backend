@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\NikRule;
+use App\Rules\ScheduleQuotaRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Vinkla\Hashids\Facades\Hashids;
 
@@ -30,7 +31,7 @@ class RegisterRequest extends FormRequest
             'address' => ['required', 'max:200'],
             'phone_number' => ['required', 'max:200'],
             'personal_identity' => ['required', new NikRule()],
-            'peoples_count' => ['required', 'integer', 'max:50'],
+            'peoples_count' => ['required', 'integer', 'max:50', new ScheduleQuotaRule($this->schedule_id)],
             'schedule_id' => ['required', 'integer', 'exists:schedules,id'],
         ];
     }

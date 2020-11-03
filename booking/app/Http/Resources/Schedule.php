@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Schedule as ScheduleModel;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Vinkla\Hashids\Facades\Hashids;
 
@@ -15,7 +16,7 @@ class Schedule extends JsonResource
      */
     public function toArray($request)
     {
-        $quotaMaximum = 30;
+        $quotaMaximum = ScheduleModel::PEOPLES_QUOTA;
 
         $quotaAvailable = ($quotaMaximum - $this->peoples_count);
 

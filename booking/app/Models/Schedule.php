@@ -16,6 +16,8 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    const PEOPLES_QUOTA = 30;
+
     protected $casts = [
         'start_at' => 'datetime',
         'end_at'   => 'datetime',
