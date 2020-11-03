@@ -169,6 +169,7 @@ return [
          */
         Vinkla\Hashids\HashidsServiceProvider::class,
         \Fruitcake\Cors\CorsServiceProvider::class,
+        \Barryvdh\DomPDF\ServiceProvider::class,
         CleancodeId\LaravelJwtGuard\LaravelJwtGuardServiceProvider::class,
 
         /*
