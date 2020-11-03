@@ -10,12 +10,12 @@ class ScheduleService
     public function generateSchedules(Carbon $startDate, Carbon $endDate)
     {
         $availableSchedules = [
-            ['start_at' => 9, 'end_at' => 10],
-            ['start_at' => 10, 'end_at' => 11],
-            ['start_at' => 11, 'end_at' => 12],
-            ['start_at' => 13, 'end_at' => 14],
-            ['start_at' => 14, 'end_at' => 15],
-            ['start_at' => 15, 'end_at' => 16],
+            ['start_at' => 2, 'end_at' => 3],
+            ['start_at' => 3, 'end_at' => 4],
+            ['start_at' => 4, 'end_at' => 5],
+            ['start_at' => 6, 'end_at' => 7],
+            ['start_at' => 7, 'end_at' => 8],
+            ['start_at' => 8, 'end_at' => 9],
         ];
 
         while ($startDate->isBefore($endDate)) {
